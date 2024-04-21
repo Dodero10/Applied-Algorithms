@@ -3,6 +3,7 @@ using namespace std;
 
 int main(){
     string s;
+    getline(cin, s);
 
     stack<char> st;
 
@@ -13,7 +14,7 @@ int main(){
         else{
             if (st.empty()){
                 cout << "0";
-                break;
+                return 0;
             }
             else if( (c == ']' && st.top() == '[') ||
                      (c == '}' && st.top() == '{') ||
@@ -22,9 +23,16 @@ int main(){
             }
             else{
                 cout << "0";
-                break;
+                return 0;
             }
         }
     }
+    
+    if(st.empty()){
+        cout << "1";
+    } else {
+        cout << "0";
+    }
+    
     return 0;
 }
